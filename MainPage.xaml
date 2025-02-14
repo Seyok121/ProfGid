@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfGid.MainPage" BackgroundColor="#00664F">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Welcome" TargetType="Label">
+                <Setter Property="Label.TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="Description" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+        
+    <ScrollView>
+
+       
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.35*"/>
+                <RowDefinition Height="0.55*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+
+            <Label Style="{StaticResource Welcome}" Grid.Row="1" Text="ДОБРО ПОЖАЛОВАТЬ!"
+                   FontSize="Title" HorizontalTextAlignment="Center" 
+                   />
+            <Label Style="{StaticResource Description}" Margin="0,50,0,0" Grid.Row="1" 
+                   Text="Выбор специальности — ответственный шаг! С приложением «ПрофГид» этот процесс станет простым и интересным. Пройди интерактивный тест, который проанализирует твои склонности и предпочтения, а затем получи список профессий с подробным описанием. Сделай осознанный выбор своего будущего!"
+                   FontFamily="Open Sans Consended"/>
+
+            <Button Grid.Row="1"
+                    VerticalOptions="End" HorizontalOptions="Center" 
+                    WidthRequest="180" HeightRequest="1" 
+                    Text="Начать тест" BackgroundColor="#2EA889" FontSize="24"/>
+            
+            <GraphicsView Drawable="{StaticResource SquareDrawable}"
+        </Grid>
+
+
+
+    </ScrollView>
+
+</ContentPage>
