@@ -7,9 +7,15 @@
     Shell.FlyoutBehavior="Disabled"
     Title="ПрофГид">
 
-    <ShellContent
-        Title="ПРОФГИД"        
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.Resources>
+        <ResourceDictionary>
+            <!-- Глобальный стиль для скрытия Navigation Bar -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
 
 </Shell>

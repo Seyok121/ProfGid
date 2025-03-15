@@ -7,10 +7,15 @@
         <ResourceDictionary>
             <Style x:Key="Welcome" TargetType="Label">
                 <Setter Property="Label.TextColor" Value="Black"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="RubikMonoOne-Regular"/>
+                <Setter Property="FontSize" Value="Title"/>
             </Style>
             <Style x:Key="Description" TargetType="Label">
                 <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="Globus" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -25,20 +30,36 @@
                 <RowDefinition Height="0.55*"/>
                 <RowDefinition Height="0.1*"/>
             </Grid.RowDefinitions>
-
-            <Label Style="{StaticResource Welcome}" Grid.Row="1" Text="ДОБРО ПОЖАЛОВАТЬ!"
-                   FontSize="Title" HorizontalTextAlignment="Center" 
-                   />
-            <Label Style="{StaticResource Description}" Margin="0,50,0,0" Grid.Row="1" 
-                   Text="Выбор специальности — ответственный шаг! С приложением «ПрофГид» этот процесс станет простым и интересным. Пройди интерактивный тест, который проанализирует твои склонности и предпочтения, а затем получи список профессий с подробным описанием. Сделай осознанный выбор своего будущего!"
-                   FontFamily="Open Sans Consended"/>
-
-            <Button Grid.Row="1"
-                    VerticalOptions="End" HorizontalOptions="Center" 
-                    WidthRequest="180" HeightRequest="1" 
-                    Text="Начать тест" BackgroundColor="#2EA889" FontSize="24"/>
             
-            <GraphicsView Drawable="{StaticResource SquareDrawable}"
+            <Label Text="ПрофГид"
+                   FontSize="32" Margin="15,15" 
+                   FontFamily="RubikMonoOne-Regular"/>
+            <!--Белый задний фон-->
+            <BoxView Grid.Row="1" Grid.RowSpan="2" BackgroundColor="White"
+                     CornerRadius="20,20,0,0"/>
+            <!--Глобус-->
+            <Image Source="globus.png" Style="{StaticResource Globus}"
+                   WidthRequest="230" Margin="0,40,0,0"/>
+            <Image Source="globusbg.png" Style="{StaticResource Globus}"
+                   WidthRequest="270" HeightRequest="300"/>
+            <!--Текст-->
+            <Label Style="{StaticResource Welcome}" Grid.Row="1" Text="ДОБРО ПОЖАЛОВАТЬ!"
+                   HorizontalTextAlignment="Center" Margin="0,40"
+                   />
+            <Label Style="{StaticResource Description}" Margin="10,80,0,0" Grid.Row="1" 
+                   Text="Выбор специальности — ответственный шаг! С приложением «ПрофГид» этот процесс станет простым и интересным. Пройди интерактивный тест, который проанализирует твои склонности и предпочтения, а затем получи список профессий с подробным описанием. Сделай осознанный выбор своего будущего!"
+                   FontFamily="Open Sans Consended" FontSize="20"/>
+            <!--Кнопка начать тест-->
+            <Button Grid.Row="1" Margin="50"
+                    VerticalOptions="End" HorizontalOptions="Center" 
+                    WidthRequest="240" HeightRequest="50" 
+                    Text="Начать тест" BackgroundColor="#2EA889" FontSize="24"/>
+            <!--Нижняя панель управления-->
+            <Frame Grid.Row="2" BackgroundColor="White" BorderColor="GhostWhite" CornerRadius="20">
+                <HorizontalStackLayout Spacing="20">
+                    <Button HorizontalOptions="Start" BackgroundColor="Black"/>
+                </HorizontalStackLayout>
+            </Frame>
         </Grid>
 
 
