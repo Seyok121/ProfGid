@@ -17,5 +17,6 @@
     </Shell.Resources>
 
     <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
-
+    <ShellContent Route="SpecialitiesPage" ContentTemplate="{DataTemplate local:SpecialitiesPage}"/>
+    <ShellContent Route="ContactsPage" ContentTemplate="{DataTemplate local:ContactsPage}"/>
 </Shell>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfGid.SpecialitiesPage" BackgroundColor="#00664F">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Globus" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+            </Style>
+            <Style x:Key="Welcome" TargetType="Label">
+                <Setter Property="Label.TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="RubikMonoOne-Regular"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="Specialities" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.85*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+
+
+            <!--Глобус-->
+            <Image Source="globus.png" Style="{StaticResource Globus}"
+                   WidthRequest="230" Margin="0,40,0,0"/>
+            <Image Source="globusbg.png" Style="{StaticResource Globus}"
+                   WidthRequest="270" HeightRequest="300"/>
+            <!--Заголовок-->
+            <Label Text="ПрофГид"
+                   FontSize="32" Margin="15,15" 
+                   FontFamily="RubikMonoOne-Regular" TextColor="White"/>
+            <!--Белый задний фон-->
+            <BoxView Grid.Row="1" Grid.RowSpan="2" BackgroundColor="White"
+                     CornerRadius="20,20,0,0"/>
+            <!--Текст-->
+            <Label Style="{StaticResource Welcome}" Grid.Row="1" Text="Наши специальности"
+                   HorizontalTextAlignment="Center" VerticalOptions="Start" Margin="0,15" HeightRequest="25"
+                   />
+            <VerticalStackLayout Grid.Row="1" VerticalOptions="Start" Margin="10,55" Spacing="30">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="10.02.05" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Обеспечение информационной безопасности автоматизированных систем"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="38.02.01" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Экономика и бухгатлерский учёт (по отраслям)"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="09.02.07" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Информационные системы и программирование"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="54.02.01" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Дизайн (по отраслям)"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="21.02.19" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Землеустройство"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="40.02.04" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Юриспруденция"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="38.02.08" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Торговое дело"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="38.01.02" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Продавец"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Specialities}" Text="38.02.06" FontAttributes="Bold"/>
+                            <Span Style="{StaticResource Specialities}" Text=" Финансы"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+            <!--Нижняя панель управления-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+                <!--Главная-->
+                <ContentView Grid.Column="0" HorizontalOptions="Center">
+                    <Grid RowDefinitions="Auto, Auto" RowSpacing="10">
+                        <Image Grid.Row="0" Source="home.png"/>
+                        <Label Grid.Row="1" Text="Главная" TextColor="Black"/>
+                    </Grid>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HomeButton_Tapped"/>
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+                <!--Специальности-->
+                <ContentView Grid.Column="1" HorizontalOptions="Center">
+                    <Grid RowDefinitions="Auto, Auto" RowSpacing="10">
+                        <Image Grid.Row="0" Source="specialities.png"/>
+                        <Label Grid.Row="1" Text="Специальности" TextColor="Black"/>
+                    </Grid>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SpecialitiesButton_Tapped"/>
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+                <!--Контакты-->
+                <ContentView Grid.Column="2" HorizontalOptions="Center">
+                    <Grid RowDefinitions="Auto, Auto" RowSpacing="10">
+                        <Image Grid.Row="0" Source="phone32px.png" HeightRequest="24" WidthRequest="24"/>
+                        <Label Grid.Row="1" Text="Контакты" TextColor="Black"/>
+                    </Grid>
+                    <ContentView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PhoneButton_Tapped"/>
+                    </ContentView.GestureRecognizers>
+                </ContentView>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

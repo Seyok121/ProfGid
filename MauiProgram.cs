@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Plugin.Toast;
+using Plugin.Toast.Abstractions;
 
 namespace ProfGid;
 
