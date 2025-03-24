@@ -22,9 +22,6 @@
     </ContentPage.Resources>
 
     <ScrollView>
-
-
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.35*"/>

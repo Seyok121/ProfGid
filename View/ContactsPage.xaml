@@ -55,7 +55,13 @@
                 <Label Style="{StaticResource Contacts}" Text="Приёмная директора - тел. (факс) (8442) 73-05-41 
                                                                Учебный отдел - тел. (8442) 73-05-22 
                                                                Приёмная комиссия - тел. (8442) 72-27-91"/>
-                <Label Style="{StaticResource Contacts}" Text="e-mail: v-filial@mail.ru">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Style="{StaticResource Contacts}" Text="e-mail: "/>
+                            <Span Style="{StaticResource Contacts}" Text="v-filial@mail.ru" TextDecorations="Underline" TextColor="CornflowerBlue"/>
+                        </FormattedString>
+                    </Label.FormattedText>
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="EmailLabel_Tapped"/>
                     </Label.GestureRecognizers>

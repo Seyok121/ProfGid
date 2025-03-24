@@ -10,7 +10,7 @@ public partial class ContactsPage : ContentPage
 	}
     private async void HomeButton_Tapped(object sender, TappedEventArgs e)
     {
-        await Shell.Current.GoToAsync("//HomePage");
+        await Shell.Current.GoToAsync("//MainPage");
     }
     private async void SpecialitiesButton_Tapped(object sender, TappedEventArgs e)
     {
