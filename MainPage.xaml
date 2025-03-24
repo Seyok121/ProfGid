@@ -56,7 +56,8 @@
             <Button Grid.Row="1" Margin="50"
                     VerticalOptions="End" HorizontalOptions="Center" 
                     WidthRequest="240" HeightRequest="50" 
-                    Text="Начать тест" BackgroundColor="#2EA889" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
+                    Text="Начать тест" BackgroundColor="#2EA889" FontSize="24" FontAttributes="Bold" TextColor="Black"
+                    Clicked="StartTest_Clicked"/>
             <!--Нижняя панель управления-->
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>

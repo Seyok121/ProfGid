@@ -21,6 +21,11 @@ namespace ProfGid
         {
             await Shell.Current.GoToAsync("//ContactsPage");
         }
+
+        private async void StartTest_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//ProfessionTestPage");
+        }
     }
 
 }
