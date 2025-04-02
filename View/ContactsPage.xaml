@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProfGid.ContactsPage" BackgroundColor="#00664F">
+             x:Class="ProfGid.ContactsPage" BackgroundColor="Teal">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="Globus" TargetType="Image">

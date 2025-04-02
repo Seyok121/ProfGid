@@ -22,5 +22,6 @@ namespace ProfGid.Model
     {
         public string Text { get; set; }
         public string ProfessionName { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

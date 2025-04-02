@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProfGid.MainPage" BackgroundColor="#00664F">
+             x:Class="ProfGid.MainPage" BackgroundColor="Teal">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -47,7 +47,7 @@
             <Label Grid.Row="1" VerticalOptions="Start" Margin="10,90" HeightRequest="220">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Style="{StaticResource Description}" Text="Выбор специальности" FontAttributes="Bold" BackgroundColor="#2EA889"/>
+                        <Span Style="{StaticResource Description}" Text="Выбор специальности" FontAttributes="Bold" BackgroundColor="Teal"/>
                         <Span Style="{StaticResource Description}" Text="— ответственный шаг! С приложением «ПрофГид» этот процесс станет простым и интересным. Пройди интерактивный тест, который проанализирует твои склонности и предпочтения, а затем получи список профессий с подробным описанием. Сделай осознанный выбор своего будущего!"/>
                     </FormattedString>
                 </Label.FormattedText>
@@ -56,7 +56,7 @@
             <Button Grid.Row="1" Margin="50"
                     VerticalOptions="End" HorizontalOptions="Center" 
                     WidthRequest="240" HeightRequest="50" 
-                    Text="Начать тест" BackgroundColor="#2EA889" FontSize="24" FontAttributes="Bold" TextColor="Black"
+                    Text="Начать тест" BackgroundColor="Teal" FontSize="24" FontAttributes="Bold" TextColor="Black"
                     Clicked="StartTest_Clicked"/>
             <!--Нижняя панель управления-->
             <Grid Grid.Row="2">

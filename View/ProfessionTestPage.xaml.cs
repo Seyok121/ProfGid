@@ -1,4 +1,6 @@
 using ProfGid.ViewModel;
+using ProfGid.Model;
+using System.Diagnostics;
 
 namespace ProfGid.View;
 
@@ -11,18 +13,12 @@ public partial class ProfessionTestPage : ContentPage
 
     private void OnAnswerSelected(object sender, CheckedChangedEventArgs e)
     {
-		if(e.Value && sender is RadioButton radioButton)
-		{
-			var viewModel = (ProfessionTestViewModel)BindingContext;
-			var selectedIndex = radioButton.Value;
-			if(selectedIndex is int index)
-			{
-                var selectedProfession = viewModel.CurrentQuestion.Answers[index].ProfessionName;
-                viewModel.AddScore(selectedProfession);
-            }
-
-			NextButton.IsEnabled = true;
-			FinishButton.IsEnabled = true;
-		}
+        if (e.Value && sender is RadioButton radioButton &&
+            BindingContext is ProfessionTestViewModel viewModel &&
+            radioButton.BindingContext is Answer answer)
+        {
+            viewModel.SelectedAnswer = answer;
+            viewModel.AddScore(answer.ProfessionName);
+        }
     }
 }

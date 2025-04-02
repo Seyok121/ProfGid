@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProfGid.View.ProfessionTestResultPage">
-    
-    
+             x:Class="ProfGid.View.ProfessionTestResultPage" BackgroundColor="Teal">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Globus" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.35*"/>
+                <RowDefinition Height="0.55*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <!--Заголовок-->
+            <Label Text="ПрофГид"
+               FontSize="32" Margin="15,15" 
+               FontFamily="RubikMonoOne-Regular" TextColor="White"/>
+            <!--Белый задний фон-->
+            <BoxView Grid.Row="1" Grid.RowSpan="2" BackgroundColor="White"
+                 CornerRadius="20,20,0,0"/>
+            <!--Глобус-->
+            <Image Source="globus.png" Style="{StaticResource Globus}"
+               WidthRequest="230" Margin="0,40,0,0"/>
+            <Image Source="globusbg.png" Style="{StaticResource Globus}"
+               WidthRequest="270" HeightRequest="300"/>
+            <!--Текст-->
+            <StackLayout Grid.Row="1" Padding="20" Spacing="10">
+                <Label Grid.Row="1" Text="Поздравляем вас с прохождением теста!"
+                       FontFamily="RubikMonoOne-Regular" FontSize="20" Margin="0,15,0,0" 
+                       TextColor="Black" LineBreakMode="WordWrap"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Вы прошли тест на помощь в выборе специальности. На основе ваших ответов мы определили, что вам может быть интересна такая профессия, как: "
+                                  TextColor="Black" FontSize="20"/>
+                            <Span Text="{Binding Profession}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Используйте эти результаты как ориентир, но не забывайте прислушиваться к своим интересам. Удачи в выборе профессии!" 
+                              FontSize="18" TextColor="Black"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Сайт Волгоградского филиала:"
+                                  TextColor="Black" FontSize="20"/>
+                            <Span Text=" https://vfilial.rgust.ru" FontSize="18" TextColor="CornflowerBlue" 
+                                  FontAttributes="Bold" TextDecorations="Underline"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnWebsiteTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Button Grid.Row="2" Text="На главную"
+                    Clicked="Button_Clicked"
+                    Background="Teal" FontSize="20"
+                    VerticalOptions="Start" HorizontalOptions="Center"/>
+        </Grid>
+
+
+
+    </ScrollView>
+
 </ContentPage>
