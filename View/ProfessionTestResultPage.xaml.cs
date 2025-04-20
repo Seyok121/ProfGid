@@ -1,6 +1,8 @@
 using ProfGid.Model;
 using ProfGid.ViewModel;
+using System.ComponentModel;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 
 namespace ProfGid.View;
 [QueryProperty(nameof(Profession), "profession")]
@@ -12,19 +14,29 @@ public partial class ProfessionTestResultPage : ContentPage
         get => _profession;
         set
         {
-            _profession = Uri.UnescapeDataString(value);
+            _profession = Uri.UnescapeDataString(value ?? string.Empty);
             OnPropertyChanged();
+            UpdateResultText();
         }
     }
-
     public ProfessionTestResultPage()
     {
         InitializeComponent();
-        BindingContext = this;
     }
-
-    private async void Button_Clicked(object sender, EventArgs e)
+    private void UpdateResultText()
     {
+        if (!string.IsNullOrEmpty(Profession))
+        {
+            ResultLabel.Text = $"Вы прошли тест на помощь в выборе специальности. На основе ваших ответов мы определили, что вам может быть интересна такая профессия, как: {Profession}";
+        }
+    }
+    private async void OnMainButtonClicked(object sender, EventArgs e)
+    {
+        if (BindingContext is ProfessionTestViewModel vm)
+        {
+            vm.ResetTestData();
+        }
+
         await Shell.Current.GoToAsync("//MainPage");
     }
     private async void OnWebsiteTapped(object sender, EventArgs e)

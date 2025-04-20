@@ -46,88 +46,42 @@
             <Label Style="{StaticResource Welcome}" Grid.Row="1" Text="Наши специальности"
                    HorizontalTextAlignment="Center" VerticalOptions="Start" Margin="0,15" HeightRequest="25"
                    />
-            <VerticalStackLayout Grid.Row="1" VerticalOptions="Start" Margin="10,55" Spacing="30">
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="10.02.05" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Обеспечение информационной безопасности автоматизированных систем"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+            <CollectionView Grid.Row="1" 
+                       VerticalOptions="Start" 
+                       Margin="10,55"
+                       ItemsSource="{Binding Specialities}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+                </CollectionView.ItemsLayout>
 
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="38.02.01" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Экономика и бухгатлерский учёт (по отраслям)"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="9" 
+                           BackgroundColor="White"
+                           CornerRadius="10"
+                           HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSpecialityTapped"/>
+                            </Frame.GestureRecognizers>
 
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="09.02.07" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Информационные системы и программирование"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="54.02.01" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Дизайн (по отраслям)"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="21.02.19" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Землеустройство"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="40.02.04" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Юриспруденция"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="38.02.08" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Торговое дело"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="38.01.02" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Продавец"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Style="{StaticResource Specialities}" Text="38.02.06" FontAttributes="Bold"/>
-                            <Span Style="{StaticResource Specialities}" Text=" Финансы"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </VerticalStackLayout>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Code}" 
+                                          Style="{StaticResource Specialities}" 
+                                          FontAttributes="Bold"/>
+                                        <Span Text=" " />
+                                        <Span Text="{Binding Name}" 
+                                          Style="{StaticResource Specialities}"
+                                          TextColor="Teal"
+                                          TextDecorations="Underline"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
             <!--Нижняя панель управления-->
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -149,7 +103,7 @@
                 <ContentView Grid.Column="1" HorizontalOptions="Center">
                     <Grid RowDefinitions="Auto, Auto" RowSpacing="10">
                         <Image Grid.Row="0" Source="specialities.png"/>
-                        <Label Grid.Row="1" Text="Специальности" TextColor="Black"/>
+                        <Label Grid.Row="1" Text="Специальности" TextColor="Teal"/>
                     </Grid>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SpecialitiesButton_Tapped"/>

@@ -35,15 +35,7 @@
                 <Label Grid.Row="1" Text="Поздравляем вас с прохождением теста!"
                        FontFamily="RubikMonoOne-Regular" FontSize="20" Margin="0,15,0,0" 
                        TextColor="Black" LineBreakMode="WordWrap"/>
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Вы прошли тест на помощь в выборе специальности. На основе ваших ответов мы определили, что вам может быть интересна такая профессия, как: "
-                                  TextColor="Black" FontSize="20"/>
-                            <Span Text="{Binding Profession}" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <Label x:Name="ResultLabel"  FontSize="18" TextColor="Black" LineBreakMode="WordWrap"/>
                 <Label Text="Используйте эти результаты как ориентир, но не забывайте прислушиваться к своим интересам. Удачи в выборе профессии!" 
                               FontSize="18" TextColor="Black"/>
                 <Label>
@@ -60,14 +52,13 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
+            <!--Кнопка на главную-->
             <Button Grid.Row="2" Text="На главную"
-                    Clicked="Button_Clicked"
-                    Background="Teal" FontSize="20"
-                    VerticalOptions="Start" HorizontalOptions="Center"/>
+                    Background="Teal" FontSize="20" TextColor="Black"
+                    VerticalOptions="Start" HorizontalOptions="Center"
+                    Clicked="OnMainButtonClicked"
+                    />
         </Grid>
-
-
-
     </ScrollView>
 
 </ContentPage>

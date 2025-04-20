@@ -10,7 +10,6 @@
 
     <Shell.Resources>
         <ResourceDictionary>
-            <!-- Глобальный стиль для скрытия Navigation Bar -->
             <Style TargetType="NavigationPage">
                 <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
             </Style>
@@ -22,5 +21,5 @@
     <ShellContent Route="ContactsPage" ContentTemplate="{DataTemplate local:ContactsPage}"/>
     <ShellContent Route="ProfessionTestPage" ContentTemplate="{DataTemplate views:ProfessionTestPage}"/>
     <ShellContent Route="ProfessionTestResultPage" ContentTemplate="{DataTemplate views:ProfessionTestResultPage}"/>
-    
+    <ShellContent Route="ProfessionDetailsPage" ContentTemplate="{DataTemplate views:ProfessionDetailsPage}"/>
 </Shell>

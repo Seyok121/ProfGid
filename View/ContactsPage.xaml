@@ -98,7 +98,7 @@
                 <ContentView Grid.Column="2" HorizontalOptions="Center">
                     <Grid RowDefinitions="Auto, Auto" RowSpacing="10">
                         <Image Grid.Row="0" Source="phone32px.png" HeightRequest="24" WidthRequest="24"/>
-                        <Label Grid.Row="1" Text="Контакты" TextColor="Black"/>
+                        <Label Grid.Row="1" Text="Контакты" TextColor="Teal"/>
                     </Grid>
                     <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="PhoneButton_Tapped"/>

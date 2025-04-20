@@ -6,8 +6,9 @@ namespace ProfGid
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute("ProfessionTestResultPage", typeof(ProfessionTestResultPage));
+            Routing.RegisterRoute(nameof(ProfessionTestResultPage), typeof(ProfessionTestResultPage));
             Routing.RegisterRoute(nameof(ProfessionTestPage), typeof(ProfessionTestPage));
+            Routing.RegisterRoute("ProfessionDetailsPage", typeof(ProfessionDetailsPage));
         }
     }
 }

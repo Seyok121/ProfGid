@@ -69,6 +69,7 @@ namespace ProfGid.ViewModel
 
         public ICommand NextCommand { get; }
         public ICommand FinishCommand { get; }
+        public ICommand ReturnToMainCommand { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -84,6 +85,10 @@ namespace ProfGid.ViewModel
             FinishCommand = new Command(
                 execute: ExecuteFinishCommand,
                 canExecute: () => IsAnswerSelected);
+            ReturnToMainCommand = new Command(async () =>
+            {
+                await ResetAndReturnToMain();
+            });
         }
 
         private List<Question> LoadQuestions()
@@ -107,7 +112,7 @@ namespace ProfGid.ViewModel
                     Answers = new List<Answer>
                     {
                         new Answer { Text = "Информатика ", ProfessionName = "Информационные системы и программирование" },
-                        new Answer { Text = "Экономика ", ProfessionName = "Экономика и бухгатлерский учёт" },
+                        new Answer { Text = "Экономика ", ProfessionName = "Экономика и бухгалтерский учёт" },
                         new Answer { Text = "Черчение", ProfessionName = "Землеустройство" },
                         new Answer { Text = "Право", ProfessionName = "Юриспруденция" }
                     }
@@ -129,7 +134,7 @@ namespace ProfGid.ViewModel
                     Answers = new List<Answer>
                     {
                         new Answer { Text = "Аудит IT-инфраструктуры", ProfessionName = "Обеспечение информационной безопасности" },
-                        new Answer { Text = "Составление баланса", ProfessionName = "Экономика и бухгатлерский учёт" },
+                        new Answer { Text = "Составление баланса", ProfessionName = "Экономика и бухгалтерский учёт" },
                         new Answer { Text = "Полевые измерения участков", ProfessionName = "Землеустройство" },
                         new Answer { Text = "Консультирование покупателей", ProfessionName = "Продавец" }
                     }
@@ -151,7 +156,7 @@ namespace ProfGid.ViewModel
                     Answers = new List<Answer>
                     {
                         new Answer { Text = "Аналитическое мышление", ProfessionName = "Информационные системы и программирование" },
-                        new Answer { Text = "Внимание к деталям", ProfessionName = "Экономика и бухгатлерский учёт" },
+                        new Answer { Text = "Внимание к деталям", ProfessionName = "Экономика и бухгалтерский учёт" },
                         new Answer { Text = "Коммуникабельность", ProfessionName = "Торговое дело" },
                         new Answer { Text = "Креативность", ProfessionName = "Дизайн" }
                     }
@@ -162,7 +167,7 @@ namespace ProfGid.ViewModel
                     Answers = new List<Answer>
                     {
                         new Answer { Text = "Настройка firewall", ProfessionName = "Обеспечение информационной безопасности" },
-                        new Answer { Text = "Автоматизация учета", ProfessionName = "Экономика и бухгатлерский учёт" },
+                        new Answer { Text = "Автоматизация учета", ProfessionName = "Экономика и бухгалтерский учёт" },
                         new Answer { Text = "Оформление земельного кадастра", ProfessionName = "Землеустройство" },
                         new Answer { Text = "Разработка фирменного стиля", ProfessionName = "Дизайн" }
                     }
@@ -195,7 +200,7 @@ namespace ProfGid.ViewModel
                     Answers = new List<Answer>
                     {
                         new Answer { Text = "На основе анализа рисков", ProfessionName = "Обеспечение информационной безопасности" },
-                        new Answer { Text = "По четким алгоритмам", ProfessionName = "Экономика и бухгатлерский учёт" },
+                        new Answer { Text = "По четким алгоритмам", ProfessionName = "Экономика и бухгалтерский учёт" },
                         new Answer { Text = "Учитывая мнение клиента", ProfessionName = "Торговое дело" },
                         new Answer { Text = "Ориентируясь на эстетику", ProfessionName = "Дизайн" }
                     }
@@ -243,9 +248,21 @@ namespace ProfGid.ViewModel
         {
             var (profession, score) = GetResult();
             await Shell.Current.GoToAsync(
-                $"//ProfessionTestResultPage?" +
-                $"profession={Uri.EscapeDataString(profession)}&" +
-                $"score={score}&");
+                $"//ProfessionTestResultPage?profession={Uri.EscapeDataString(profession)}");
+            ResetTestData();
+        }
+        private async Task ResetAndReturnToMain()
+        {
+            ResetTestData();
+            await Shell.Current.GoToAsync("//MainPage");
+        }
+
+        public void ResetTestData()
+        {
+            _results.Clear();
+            InitializeResults(); // Восстанавливаем структуру
+            CurrentQuestionIndex = 0;
+            SelectedAnswer = null;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
