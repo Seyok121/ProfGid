@@ -18,7 +18,6 @@ public partial class ProfessionTestPage : ContentPage
             radioButton.BindingContext is Answer answer)
         {
             viewModel.SelectedAnswer = answer;
-            viewModel.AddScore(answer.ProfessionName);
         }
     }
 }

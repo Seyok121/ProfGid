@@ -9,6 +9,7 @@ namespace ProfGid.ViewModel
     public class ProfessionTestViewModel : INotifyPropertyChanged
     {
         private readonly Dictionary<string, int> _results = new();
+
         private int _currentQuestionIndex = 0;
 
         private Answer _selectedAnswer;
@@ -229,6 +230,7 @@ namespace ProfGid.ViewModel
                 _results[profession]++;
             }
         }
+
         public (string Profession, int Score) GetResult()
         {
             var result = _results.OrderByDescending(x => x.Value).First();
@@ -239,6 +241,11 @@ namespace ProfGid.ViewModel
         {
             if (CurrentQuestionIndex < Questions.Count - 1)
             {
+                if (SelectedAnswer != null)
+                {
+                    AddScore(SelectedAnswer.ProfessionName);
+                }
+
                 CurrentQuestionIndex++;
                 SelectedAnswer = null;
             }
@@ -246,11 +253,17 @@ namespace ProfGid.ViewModel
 
         private async void ExecuteFinishCommand()
         {
+            if (SelectedAnswer != null)
+            {
+                AddScore(SelectedAnswer.ProfessionName);
+            }
+
             var (profession, score) = GetResult();
             await Shell.Current.GoToAsync(
                 $"//ProfessionTestResultPage?profession={Uri.EscapeDataString(profession)}");
             ResetTestData();
         }
+
         private async Task ResetAndReturnToMain()
         {
             ResetTestData();
@@ -260,7 +273,7 @@ namespace ProfGid.ViewModel
         public void ResetTestData()
         {
             _results.Clear();
-            InitializeResults(); // Восстанавливаем структуру
+            InitializeResults();
             CurrentQuestionIndex = 0;
             SelectedAnswer = null;
         }

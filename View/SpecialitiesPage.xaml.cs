@@ -8,7 +8,7 @@ public partial class SpecialitiesPage : ContentPage
     public List<Speciality> Specialities { get; } = new()
     {
         new Speciality { Code = "10.02.05", Name = "Обеспечение информационной безопасности автоматизированных систем" },
-        new Speciality { Code = "38.02.01", Name = " " },
+        new Speciality { Code = "38.02.01", Name = "Экономика и бухгалтерский учёт (по отраслям)" },
         new Speciality { Code = "09.02.07", Name = "Информационные системы и программирование" },
         new Speciality { Code = "54.02.01", Name = "Дизайн (по отраслям)" },
         new Speciality { Code = "21.02.19", Name = "Землеустройство" },
